@@ -19,6 +19,7 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<spring-cloud.version>2020.0.3</spring-cloud.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,24 +28,39 @@
 		<lombok.version>1.18.24</lombok.version>
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<jjwt.version>0.11.5</jjwt.version>
-		<java.security.egd>file:/dev/./urandom</java.security.egd>
+		<java.secuity.egd>file:/dev/./urandom</java.secuity.egd>
 		<mysql.connector.version>8.0.33</mysql.connector.version>
 		<commons.lang3.version>3.12.0</commons.lang3.version>
-		<springfox.version>3.0.0</springfox.version> <!-- Ensure compatibility
+		<!--<springfox.version>3.0.0</springfox.version>--> <!-- Ensure
+		compatibility
 		with Spring Boot 2.5.5 -->
-		<spring-cloud.version>2020.0.3</spring-cloud.version>
+
 	</properties>
 
 	<dependencies>
+	<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+	<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
 		<dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    </dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
 		<!-- Spring Boot Starter Dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -79,6 +95,7 @@
 			<version>${mysql.connector.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+
 
 		<!-- JWT Support -->
 		<dependency>
@@ -122,23 +139,23 @@
 		</dependency>
 
 		<!-- Springfox (for Swagger API documentation) -->
-		<dependency>
+		<!--<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-boot-starter</artifactId>
 			<version>${springfox.version}</version>
-		</dependency>
+		</dependency>-->
 	</dependencies>
 	<dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>${spring-cloud.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
@@ -178,6 +195,7 @@
 					<mainClass>com.auth.AuthServiceApplication</mainClass>
 				</configuration>
 			</plugin>
+
 
 			<!-- Spring Boot Maven Plugin -->
 			<plugin>

@@ -1,6 +1,5 @@
 package com.auth.service.Impl;
 
-import com.auth.model.ERole;
 import com.auth.model.Role;
 import com.auth.repository.RoleRepository;
 import com.auth.service.RoleService;
@@ -17,10 +16,10 @@ public class RoleServiceImpl implements RoleService {
     private RoleRepository roleRepository;
 
     @Override
-    public Optional<Role> findByName(ERole name) {
+    public Optional<Role> findByName(String name) {
         return roleRepository.findByName(name);
     }
-
+    
     @Override
     public List<Role> getAllRoles() {
         return roleRepository.findAll();

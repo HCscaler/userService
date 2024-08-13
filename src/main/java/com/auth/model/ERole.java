@@ -1,6 +1,6 @@
-package com.auth.model;
-
-public enum ERole {
-    ROLE_USER,
-    ROLE_ADMIN
-}
+//package com.auth.model;
+//
+//public enum ERole {
+//    ROLE_USER,
+//    ROLE_ADMIN
+//}

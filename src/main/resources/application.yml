@@ -1,11 +1,12 @@
-# Conversion to YAML from Properties formar report
-# Warnings:
-# - The yaml file had comments which are lost in the refactoring!
 spring:
   application:
     name: AuthService
   datasource:
+<<<<<<< HEAD
     url: jdbc:mysql://localhost:3306/user
+=======
+    url: jdbc:mysql://localhost:3306/ToDoLists
+>>>>>>> e589004bbb378327118393fe497fceebd20dd5f6
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
@@ -15,15 +16,105 @@ spring:
     show-sql: true
   main:
     allow-bean-definition-overriding: true
+  boot:
+    admin:
+      client:
+        instance:
+          management-base-url: http://localhost:8081
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+        
 server:
   port: 8081
+
 jwt:
-  secret: mySecretKey
-  expiration: 86400000
-  refreshExpiration: 2592000000
+  secret: 9cfb1fdb5d564ea897c1e6a3e2f5a9bf1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+  expiration: 360000000  # 1 hour in milliseconds
+  refreshExpiration: 2592000000  # 30 days in milliseconds
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true
     register-with-eureka: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+#spring:
+#  application:
+#    name: AuthService
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/ToDoLists
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: Tushar@123
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#  main:
+#    allow-bean-definition-overriding: true
+#server:
+#  port: 8081
+#jwt:
+#  secret: mySecretKey
+#  expiration: 3600000
+#  refreshExpiration: 2592000000
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka
+#    fetch-registry: true
+#    register-with-eureka: true
+#springdoc:
+#  api-docs:
+#    path: /v3/api-docs
+#  swagger-ui:
+#    path: /swagger-ui.html
+#
+#
+#
+#
+#
+#
+#
+#
+#
+### Conversion to YAML from Properties formar report
+### Warnings:
+### - The yaml file had comments which are lost in the refactoring!
+##spring:
+##  application:
+##    name: AuthService
+##  datasource:
+##    url: jdbc:mysql://localhost:3306/ToDoList
+##    driver-class-name: com.mysql.cj.jdbc.Driver
+##    username: root
+##    password: Tushar@123
+##  jpa:
+##    hibernate:
+##      ddl-auto: update
+##    show-sql: true
+##  main:
+##    allow-bean-definition-overriding: true
+##server:
+##  port: 8081
+##jwt:
+##  secret: mySecretKey
+##  expiration: 86400000
+##  refreshExpiration: 2592000000
+##eureka:
+##  client:
+##    serviceUrl:
+##      defaultZone: http://localhost:8761/eureka
+##    fetch-registry: true
+##    register-with-eureka: true
+##
