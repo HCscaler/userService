@@ -1,13 +1,13 @@
 package com.auth.service;
 
-import com.auth.model.ERole;
+
 import com.auth.model.Role;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface RoleService {
-    Optional<Role> findByName(ERole name);
+	Optional<Role> findByName(String name);
     List<Role> getAllRoles();
     Optional<Role> getRoleById(Long id);
     Role createRole(Role role);
