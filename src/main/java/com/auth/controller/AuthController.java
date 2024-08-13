@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.auth.jwt.JwtTokenProvider;
 import com.auth.model.ERole;
+import com.auth.model.EmailRequest;
 import com.auth.model.Role;
 import com.auth.model.User;
 import com.auth.service.RefreshTokenService;
@@ -111,7 +112,7 @@ public class AuthController {
 
         // Create user with role
         User createdUser = userService.createUser(signUpRequest.getUsername(), signUpRequest.getPassword(), Set.of(userRole));
-
+       
         return ResponseEntity.ok("User registered successfully");
     }
     

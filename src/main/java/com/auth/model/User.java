@@ -31,6 +31,11 @@ public class User {
     @JsonIgnore // This will prevent the password from being serialized
     @Column(nullable = false)
     private String password;
+    
+    @Column(nullable = false)
+    private String name;
+    @Column(nullable = false)
+    private String gmail;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -49,8 +54,19 @@ public class User {
         this.password = password;
         this.roles = roles;
     }
+    
 
-    public Long getId() {
+    public User(Long id, String username, String password, String name, String gmail, Set<Role> roles) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.gmail = gmail;
+		this.roles = roles;
+	}
+    
+	public Long getId() {
         return id;
     }
 
@@ -81,4 +97,21 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGmail() {
+		return gmail;
+	}
+
+	public void setGmail(String gmail) {
+		this.gmail = gmail;
+	}
+    
 }
